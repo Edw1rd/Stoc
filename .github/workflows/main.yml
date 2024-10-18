@@ -6,7 +6,7 @@ on:
       # This cron job runs every hour, you can modify it as needed
       - cron: '0 * * * *' 
 jobs:
-    execute-alpaca-main:
+    execute-trading-script:
       # The job will run on the latest Ubuntu virtual environment
       runs-on: ubuntu-latest
   
@@ -27,9 +27,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install alpaca-trade-api alpaca-py # Add your other API packages here
   
-      - name: Run alpaca_main
+      - name: Run strategy
         # Run the trading script that contains your trading logic
-        run: python alpaca_main.py
+        run: python strategy.py
         env:
           APCA_API_BASE_URL: ${{ secrets.APCA_API_BASE_URL }}
           APCA_API_KEY_ID: ${{ secrets.APCA_API_KEY_ID }}
