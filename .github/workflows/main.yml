@@ -6,7 +6,7 @@ on:
       # This cron job runs every hour, you can modify it as needed
       - cron: '0 * * * *' 
 jobs:
-    execute-trading-script:
+    execute-alpaca-main:
       # The job will run on the latest Ubuntu virtual environment
       runs-on: ubuntu-latest
   
