@@ -27,9 +27,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install alpaca-trade-api alpaca-py # Add your other API packages here
   
-      - name: Run strategy
+      - name: Run stock
         # Run the trading script that contains your trading logic
-        run: python strategy.py
+        run: python stock.py
         env:
           APCA_API_BASE_URL: ${{ secrets.APCA_API_BASE_URL }}
           APCA_API_KEY_ID: ${{ secrets.APCA_API_KEY_ID }}
