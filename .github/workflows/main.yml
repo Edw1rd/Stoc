@@ -25,7 +25,7 @@ jobs:
         # Install Python packages needed for your trading bot and other APIs
         run: |
           python -m pip install --upgrade pip
-          pip install alpaca-trade-api alpaca-py # Add your other API packages here
+          pip install -r requiremnets.txt alpaca-trade-api alpaca-py # Add your other API packages here
   
       - name: Run alpaca_main
         # Run the trading script that contains your trading logic
