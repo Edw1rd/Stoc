@@ -1,11 +1,18 @@
-import logging
-logging.basicConfig(level=logging.DEBUG)
-
 from alpaca.trading.client import TradingClient
 from alpaca.trading.enums import OrderSide, TimeInForce
 from alpaca.trading.requests import MarketOrderRequest
 from alpaca.trading.stream import TradingStream
+from dotenv import load_dotenv
+import os
 import config
+
+load_dotenv()
+
+ALPACA_API_KEY = os.getenv("ALPACA_API_KEY")
+ALPACA_SECRET_KEY = os.getenv("ALPACA_SECRET_KEY")
+
+if not ALPACA_API_KEY or not ALPACA_SECRET_KEY:
+    raise ValueError("API keys are not set. Please set the environment variables.")
 
 client = TradingClient(config.API_KEY, config.SECRET_KEY, paper=True)
 account = dict(client.get_account())
