@@ -14,27 +14,17 @@ ALPACA_SECRET_KEY = os.getenv("ALPACA_SECRET_KEY")
 if not ALPACA_API_KEY or not ALPACA_SECRET_KEY:
     raise ValueError("API keys are not set. Please set the environment variables.")
 
-                       #config.API_KEY, config.SECRET_KEY
-client = TradingClient(ALPACA_API_KEY, ALPACA_SECRET_KEY, paper=True)
+client = TradingClient(config.API_KEY, config.SECRET_KEY, paper=True)
 account = dict(client.get_account())
 for k,v in account.items():
     print(f"{k:30}{v}")
 
-# order_details = MarketOrderRequest(
-#     symbol= "SPY",
-#     qty = 50,
-#     side = OrderSide.BUY,
-#     time_in_force = TimeInForce.DAY,
-#     extended_hours=True # extended hours enabled  включены раширенные часы 
-# )
-order_details = LimitOrderRequest(
-    symbol="SPY",
-    qty=50,
-    side=OrderSide.BUY,
-    limit_price=400.00,  # Установите желаемую цену
-    time_in_force=TimeInForce.DAY,
-    extended_hours=True  # Включены расширенные часы
-)
+order_details = MarketOrderRequest(
+    symbol= "SPY",
+    qty = 100,
+    side = OrderSide.BUY,
+    time_in_force = TimeInForce.DAY
+) 
 
 order = client.submit_order(order_details)
 print(f"Order submitted: {order}")
