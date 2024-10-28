@@ -24,7 +24,7 @@ order_details = MarketOrderRequest(
     qty = 100,
     side = OrderSide.BUY,
     time_in_force = TimeInForce.DAY,
-    extended_hours=True
+    #extended_hours=True
 ) 
 
 order = client.submit_order(order_details)
