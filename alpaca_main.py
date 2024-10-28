@@ -23,7 +23,8 @@ order_details = MarketOrderRequest(
     symbol= "SPY",
     qty = 100,
     side = OrderSide.BUY,
-    time_in_force = TimeInForce.DAY
+    time_in_force = TimeInForce.DAY,
+    extended_hours=True
 ) 
 
 order = client.submit_order(order_details)
