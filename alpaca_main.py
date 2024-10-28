@@ -21,14 +21,17 @@ for k,v in account.items():
 
 order_details = MarketOrderRequest(
     symbol= "SPY",
-    qty = 100,
+    qty = 50,
     side = OrderSide.BUY,
     time_in_force = TimeInForce.DAY
 )
 
+order = client.submit_order(order_details)
+print(f"Order submitted: {order}")
+
 assets = [asset for asset in client.get_all_positions()]
 positions = [(asset.symbol, asset.qty, asset.current_price) for asset in assets]
-print("Postions")
+print("Positions")
 print(f"{'Symbol':9}{'Qty':>4}{'Value':>15}")
 print("-" * 28)
 for position in positions:
