@@ -21,7 +21,7 @@ for k,v in account.items():
 
 order_details = MarketOrderRequest(
     symbol= "SPY",
-    qty = .30,#Dont work if more than 1
+    qty = .99,#Dont work if more than 1
     side = OrderSide.BUY,
     time_in_force = TimeInForce.DAY
     #extended_hours=True
